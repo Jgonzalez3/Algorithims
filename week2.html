@@ -1,0 +1,113 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Week 2</title>
+</head>
+<body>
+    
+</body>
+<script>
+    function Palindrome(str){
+        var end = 1;
+        for(var i = 0; i<str.length/2; i++){
+            if(str[i]!= str[str.length-end]){
+                console.log(str[i]);
+                console.log(str[str.length-end]);
+                return false;
+                break;
+            }
+            else if(str[i] == str[str.length-end]){
+                console.log(str[i]);
+                console.log(str[str.length-end]);
+                end--;
+            }
+            return true;
+        }
+    }
+
+    function RemoveSpaces(str){
+        var newString = '';
+        for(var i = 0; i<str.length; i++){
+            if(str[i] != ' '){
+                newString += str[i];
+                console.log(str[i]);
+            }
+        }
+        return newString;
+    }
+    function Acronymn(str){ //given string return the first letter of each word to make acronymns from all the first letters of each word given the string
+        var newString = '';
+        if(str[0] !== ' '){
+                newString = str[0];
+            }
+        for(var i = 0; i<str.length; i++){
+            if(str[i-1] == ' '){
+                newString += str[i];
+            }
+        }
+        return newString;
+    }
+    function FizzBuzz(num){ //Go through number range from 1 to num and each time factor of 3 = fizz, factor of 5 = buzz and factor of 5 or 3 =fizzbuzz
+        var fizz ="Fizz", buzz = "Buzz";
+        for(var i = 1; i<=num; i++){
+            if(i%5 === 0 && i%3 == 0){
+                console.log(fizz+buzz);
+            }
+            else if(i%5 == 0){
+                console.log(buzz);
+            }
+            else if(i%3 === 0){
+                console.log(fizz);
+            }
+            else console.log(i);
+        }
+    }
+    function Fibonacci(num){ //fibonacci starts at 1: p1+p2 = sum, adding sum of previous equation plus previous number added to prior sum
+        var sum = 0, p1 = 1, p2 = 1;
+        if(num == 0 || num == 1){
+            return num;
+        }
+        for(var i = 0; i<num; i++){
+            sum = p1 +p2;
+            console.log("the sum ",sum);
+            p2 = p1;
+            console.log("p2 ",p2);
+            p1 = sum;
+            console.log("p1 ", p1);
+        }
+        return sum;
+    }
+    function CoinChange($){ //use least amount of coins for change assume change is all in coins
+        var quartercount = 0, dimecount = 0, nickelcount = 0, pennycount = 0, remainder = 0, changemultiplier = 0;
+        changemultiplier = $ * 100;
+        if(changemultiplier/25 > 0){
+            quartercount = Math.trunc(changemultiplier/25);
+            console.log("Quarters",quartercount);
+            remainder = changemultiplier % 25;
+            console.log(remainder);
+        }
+        if(changemultiplier/10 > 0){
+            dimecount = Math.trunc(remainder/10);
+            console.log("dimes",dimecount);
+            remainder = remainder % 10;
+            console.log(remainder)
+        }
+        if(changemultiplier/5 > 0){
+            nickelcount = Math.trunc(remainder/5);
+            console.log("nickels", nickelcount);
+            remainder = remainder % 05;
+            console.log(remainder);
+        }
+        if(changemultiplier/1 > 0){
+            pennycount = Math.trunc(remainder/1);
+            console.log("pennies", pennycount);
+            console.log(remainder);
+        }
+        var totalcoins = quartercount+dimecount+nickelcount+pennycount;
+        return totalcoins;
+    }
+</script>
+</html>
