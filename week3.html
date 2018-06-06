@@ -1,0 +1,114 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Algo</title>
+    <script>
+        function Reverse(arr){
+            var temp = 0;
+            for(var i = 0; i<arr.length/2; i++){
+                temp =  arr[i];
+                arr[i] = arr[arr.length - 1 - i];
+                arr[arr.length-1-i] = temp;
+            }
+            return arr
+        }
+
+        function ReverseString(str){
+            var newstr = "";
+            for(var i = str.length-1; i>=0; i--){
+                newstr += str[i]
+            }
+            return newstr
+        }
+
+        function ArrayJoin(arr){
+            var str = "";
+            for(var i = 0; i<arr.length; i++){
+                str += str[i];
+            }
+            return str
+        }
+
+        function SplitString(str){
+            var arr = [];
+            for(var i = 0; i<str.length; i++){
+                arr.push(str[i])
+            }
+            return arr
+        }
+        function SplitStr(str,sep){
+            var newstr = "";
+            var arr = [];
+            for(var i = 0; i<str.length; i++){
+                if(str[i] != sep){
+                    newstr += str[i]
+                }
+                else{
+                    if(newstr = ""){
+                        continue;
+                    }
+                    else{
+                        arr.push(newstr);
+                        newstr = "";
+                    }
+                }
+            }
+            return arr
+        }
+    // Practice ///////
+        var integer = 2018
+        roman = {
+            "M": 1000,
+            "D": 500,
+            "C": 100,
+            "L" : 50,
+            "X" : 10,
+            "V" : 5,
+            "I": 1
+        }
+        switch(integer){
+            case integer > 1000: console.log("M"); break;
+            case integer > 500: console.log("D");
+            case integer > 100: console.log("C");
+            case integer > 50: console.log("L");
+            case integer > 10: console.log("X");
+            case integer > 5: console.log("V");
+            default: console.log("I")
+        }
+        /////////// 
+
+        function IntToRoman(num){
+            var Dict = [ //change to object and remove roman variable
+                [1000, "M"],
+                [500, "D"],
+                [100, "C"],
+                [50, "L"],
+                [10, "X"],
+                [5, "V"],
+                [1, "I"]
+            ];
+            var result = "";
+            var Roman = [1000,500,100,50,10,5,1];
+            var Romancount = [0,0,0,0,0,0,0];
+            for(var i = 0; i<Roman.length; i++){
+                Romancount = Math.floor(num/Roman[i]);
+                console.log(Romancount);
+                num = num % Roman[i];
+                console.log
+                result += Dict[i][1] * Romancount[i]
+            }
+            return result
+        }
+
+        function CensorWords(str, censors){
+            
+        }
+    </script>
+</head>
+<body>
+    
+</body>
+</html>

@@ -1,0 +1,168 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Algo week 4 Single Linked List Intro</title>
+</head>
+<body>
+    
+</body>
+<script>    
+    // Single linked lists. Define SLL class, then Node object.
+    function SLL(){
+        this.head = null;
+    }
+    let SLL1 = new SLL(); //creates the Single Linked List
+
+    function Node(val){
+        this.val = val;
+        this.next = null;
+        return this;
+    }
+    // Add Node to front of SLL
+    SLL.prototype.ATF = function(val){
+        var NewNode = new Node(val);
+        var temp = NewNode;
+        temp.next = this.head;
+        this.head = temp;
+        return this;
+    }
+    // Remove front node below:
+    SLL.prototype.RemoveFront = function(){
+        var runner = this.head;
+        if(runner.next == null){
+            this.head = null;
+            return this;
+        }
+        else if(runner.next != null){
+            runner = runner.next;
+            this.head = runner;
+        }
+        return this;
+    }
+    console.log("SLL1", SLL1.ATF(10).ATF(3).ATF(4).ATF(8));
+    console.log("Remove Front", SLL1.RemoveFront());
+
+    // Add Node to the back of list, the end of list.
+    SLL.prototype.ATB = function(val){
+        var NewNode = new Node(val);
+        var runner = this.head;
+        if(runner == null){
+            this.head = NewNode;
+            return this;
+        }
+        while(runner.next != null){
+            runner = runner.next;
+        }
+        runner.next = NewNode;
+        return this;
+    }
+
+    SLL.prototype.RemoveBack = function(){
+        var runner = this.head;
+        if(runner == null){
+            return this;
+        }
+        else if (runner.next == null){
+            this.head == null;
+            return this;
+        }
+        while(runner.next != null){
+            if(runner.next.next == null){
+                runner.next = null;
+                return this;
+            }
+            runner = runner.next;
+        }
+    }
+    let SLL2 = new SLL();
+    console.log("SLL2", SLL2.ATB(6).ATB(7).ATB(2));
+    console.log("ATB 4", SLL2.ATB(4));
+    console.log("RemoveBack", SLL2.RemoveBack());
+
+    // If List contains num return true otherwise false
+    SLL.prototype.Contains =  function(num){
+        var runner = this.head;
+        while(runner != null){
+            if(runner.val == num){
+                return true;
+            }
+            runner = runner.next;
+        }
+        return false;
+    }
+    console.log("SLL2 Contains = 3", SLL2.Contains(3));
+    console.log("SLL2 Contains = 2", SLL2.Contains(2));
+
+    SLL.prototype.RemoveVal = function(val){ //remove nodes with value, but dont remove rest of list after node with value.
+        var runner = this.head;
+        while(runner != null){
+            if(runner.val == val){
+                this.head = this.head.next
+            }
+            if(runner.next == null){
+                break;
+            }
+            if(runner.next.val == val){
+                runner.next = runner.next.next
+                continue;
+            }
+            runner = runner.next;
+        }
+        return this;
+    }
+    let SLL3 = new SLL();
+    console.log("SLL3", SLL3.ATB(8).ATB(8).ATB(6).ATB(8).ATB(8).ATB(1));
+    console.log("RemoveVal", SLL3.RemoveVal(8));
+    
+    //insert node with val1 before node with val2
+    // Can work on edge cases for multiple nodes with val2
+    SLL.prototype.InsertBefore = function(val1, val2){ 
+        var runner = this.head;
+        var newNode = new Node(val1);
+        while(runner){
+            if(runner.val == val2){
+                var temp = newNode;
+                temp.next = this.head;
+                this.head = temp;
+            }
+            if(runner.next == null){
+                break;
+            }
+            else if(runner.next.val == val2){
+                newNode.next = runner.next
+                runner.next = newNode
+            }
+            runner = runner.next
+        }
+        return this;
+    }
+    let SLL4 = new SLL();
+    console.log("SLL4", SLL4.ATB(9).ATB(7).ATB(3).ATB(8));
+    console.log("Insert Before", SLL4.InsertBefore(6,9));
+
+    // SPlit SLL on value by creating new SLL, if no value in SLL then return false.
+    SLL.prototype.SplitOnValue = function(val){
+        var runner = this.head;
+        while(runner){
+            if(runner.next == null){
+                break;
+            }
+            if(runner.next.val == val){
+                let newSLL =  new SLL();
+                newSLL.head = runner.next;
+                runner.next = null;
+                console.log("SLL4", SLL4);
+                return newSLL;
+            }
+            runner = runner.next;
+        }
+        return false;
+    }
+    console.log("SplitOnVal", SLL4.SplitOnValue(0));
+    console.log("SplitOnVal", SLL4.SplitOnValue(7));
+    
+</script>
+</html>
