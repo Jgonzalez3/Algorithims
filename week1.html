@@ -1,0 +1,97 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Algo's</title>
+</head>
+<body>
+    
+</body>
+<script>
+    "use strict";
+    function PushFront(arr,num){
+        arr.push(num);
+        for(var i=arr.length-1; i>0; i--){
+            arr[i] = arr[i-1];
+        }
+        arr[0] =num;
+        return arr
+    }
+
+    function PopFront(arr){
+        for(var i = 0; i<arr.length; i++){
+            arr[i] = arr[i+1]
+        }
+        arr.pop();
+        return arr
+    }
+
+    function RemoveAt(arr,idx){
+        for(var i = idx; i<arr.length; i++){
+            arr[i] = arr[i+1];
+        }
+        arr.pop();
+        return arr
+    }
+
+    function InsertAt(arr,idx,num){
+        var temp = num;
+        arr.push(num);
+        for(var i = arr.length-1; i>idx; i--){
+            arr[i] = arr[i-1];
+            if(i == idx){
+                arr[i] = temp
+            }
+        }
+        return arr
+    }
+
+    function Reverse(arr){ //new array
+        var newarr = [];
+        for(var i = arr.length-1; i>0; i--){
+            newarr.push(arr[i])
+        }
+        return newarr
+    }
+
+    function ReverseSameArr(arr){ // rearrange same arr no new arr
+        var start = 0;
+        var end = arr.length-1;
+        while(end>start){
+            var temp = arr[start];
+            arr[start] = arr[end];
+            arr[end] = temp;
+            start++;
+            end--;
+        }
+        return arr;
+    }
+
+    function RemoveDupes(arr){ // remove duplicates of sorted array new array
+        var newarr = [];
+        for(var i=0; i<arr.length; i++){
+            if(arr[i] != arr[i+1]){
+                newarr.push(arr[i])
+            }
+        }
+        return newarr
+    } 
+
+    function RemoveDupesNoNewArr(arr){ // remove duplicates no new array 1 loop assume sorted array
+        var index = 0; // consider restarting index when pushing elements to left or right, as index can be shuffled around
+        for(var i = 1; i<arr.length; i++){
+            if(arr[i] != arr[i-1]){
+                continue;
+            }
+            else if(arr[i] == arr[i-1]){
+                index = i;
+                arr.pop();
+                arr.push(temp)
+            }
+        }
+        return arr;
+    }
+</script>
+</html>
