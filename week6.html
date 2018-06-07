@@ -1,0 +1,151 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+</head>
+<script>
+    // ES5 syntax below:
+    // function SLL(){
+    //     this.head = null;
+    // }
+    // function Node(val){
+    //     this.val = val;
+    //     this.next = null;
+    //     return this;
+    // }
+    // SLL.prototype.ATF = function(val){
+    //     var NewNode = new Node(val);
+    //     var temp = NewNode;
+    //     temp.next = this.head;
+    //     this.head = temp;
+    //     return this;
+    // }
+
+    // SLL.prototype.Reverse = function(){
+    //     let runner = this.head;
+    //     let temp = null;
+    //     while(runner.next !== null){
+    //         var holder = runner.next;
+    //         console.log("Holder", holder);
+    //         runner.next = temp;
+    //         console.log("runner.next = TEMP", runner.next);
+    //         temp = runner;
+    //         console.log("TEMP = Runner", temp);
+    //         runner = holder;
+    //         console.log("runner = holder", runner);
+    //     }
+    //     runner.next = temp;
+    //     this.head =holder;
+    //     return this;
+    // }
+    // SLL.prototype.rReverse = function(runner = this.head, temp = null, holder = null){
+    //     // console.log(runner, temp, holder);
+    //     if(runner.next === null){
+    //         runner.next = temp;
+    //         this.head = holder;
+    //         return this;
+    //     }
+    //     holder = runner.next;
+    //     runner.next = temp;
+    //     temp = runner;
+    //     runner = holder;
+    //     // console.log(runner, temp, holder);
+    //     return SLL.prototype.rReverse(runner, temp, holder);
+    // }
+
+    // ES6 syntax below:
+    class SLL{
+        constructor(){
+            this.head = null;
+        }
+        ATF(val){
+            let newNode = new Node(val);
+            let temp = newNode;
+            temp.next = this.head;
+            this.head = temp;
+            return this;
+        }
+        //Reverse SLL in place
+        Reverse(){
+            let runner = this.head;
+            let temp = null;
+            while(runner.next){
+                var holder = runner.next;
+                runner.next = temp;
+                temp = runner;
+                runner = holder;
+            }
+            runner.next = temp;
+            this.head = holder;
+            return this;
+        }
+        // rReverse(runner = this.head, temp = null, holder = null){
+        //     if(!runner.next){
+        //         runner.next = temp;
+        //         this.head = holder;
+        //         return this;
+        //     }
+        //     holder = runner.next;
+        //     runner.next = temp;
+        //     temp = runner;
+        //     runner = holder;
+        //     return this.rReverse(runner, temp, holder);
+        // }
+    }
+    class Node{
+        constructor(val){
+            this.val = val;
+            this.next = null;
+        }
+    }
+    let SLL1 = new SLL();
+    let SLL2 = new SLL();
+    console.log("SLL1", SLL1.ATF(10).ATF(3).ATF(4).ATF(8));
+    console.log("SLL2", SLL2.ATF(10).ATF(3).ATF(4).ATF(8));
+    console.log("SSL1 Reverse", SLL1.Reverse());
+    // console.log("SLL1 rReverse", SLL1.rReverse());
+
+    // Binary Search to find index value of num within array
+    function BinarySearch(arr, num){
+        let m = Math.round(arr.length/2);
+        console.log("M", m);
+        let s = 0;
+        let e = arr.length-1;
+        let count = 0;
+        if(arr[m] == num || arr[s] == num || arr[e] == num){
+            return m || s || e;
+        }
+        while(num !== arr[m]){
+            count++;
+            console.log("Iterations", count)
+            if(arr[m] < num){
+                let temp = m;
+                m = Math.round(m + ((m-s)/2));
+                s = temp;
+                console.log("ARR[M] < num", s, m, e)
+            }
+            if(arr[m] == num || arr[s] == num || arr[e] == num){
+                return m || s || e;
+            }
+            if(arr[m]>num){
+                let temp = m;
+                m = Math.round(s + ((m-s)/2));
+                e = temp;
+                console.log("ARR[M] > num", s, m, e)
+            }
+            if(arr[m] == num || arr[s] == num || arr[e] == num){
+                return m || s || e;
+            }
+        }
+        return false;
+    }
+    
+    
+</script>
+<body>
+    
+</body>
+</html>
