@@ -1,0 +1,153 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+</head>
+<script>
+//ES5 below for BST class Node Class and Adding Node to BST:
+// function BST(){
+//     this.root = null;
+// }
+// function Node(val){
+//     this.left = null;
+//     this.right = null;
+//     this.val = val;
+// }
+// let BST1 = new BST();
+
+// BST.prototype.Add = function(val){
+//     newNode = new Node(val);
+//     console.log("New Node",newNode);
+//     if(this.root == null){
+//         this.root = newNode;
+//     }
+//     return this;
+// }
+
+//ES6 below:
+class BST{
+    constructor(){
+        this.root = null;
+    }
+    Add(val){
+        let newNode = new Node(val);
+        if(!this.root){
+            this.root = newNode;
+            return this;
+        }
+        let runner = this.root;
+        while(runner){
+            if(runner.val > val){
+                if(!runner.left){
+                    runner.left = newNode;
+                    return this;
+                }
+                runner = runner.left;
+            }else{
+                if(!runner.right){
+                    console.log(runner);
+                    runner.right = newNode;
+                    return this;
+                }
+                runner = runner.right;
+            }
+        }
+        return this;
+    }
+    Contains(val){
+        let runner = this.root;
+        while(runner){
+            console.log(runner);
+            console.log(runner.val);
+            console.log(val);
+            if(runner.val > val){
+                if(runner.val == val){
+                    return true;
+                }
+                runner = runner.left;
+            } else{
+                if(runner.val == val){
+                    return true;
+                }
+                runner = runner.right;
+            }
+        }
+        return false;
+    }
+    FindMin(){
+        let runner = this.root;
+        while(runner){
+            if(runner.left){
+                runner = runner.left;
+            }
+            else{
+                return runner;
+            }
+        }
+    }
+    FindMax(){
+        let runner = this.root;
+        while(runner){
+            if(runner.right){
+                runner = runner.right;
+            }
+            else{
+                return runner;
+            }
+        }
+    }
+    FindSize(runner = this.root, count = 1){
+        if(!runner){
+            count = 0;
+            return count;
+        }
+        console.log("Runner", runner, count);
+        if(runner.right){
+            count = this.FindSize(runner.right, count+=1)
+        }
+        if(runner.left){
+            count = this.FindSize(runner.left, count+=1)
+        }
+    }
+    FindHeight(size=0, max=1, runner=this.root){
+        if(!runner){
+            return size;
+        }
+        if(!runner.left && !runner.right){
+            if(max > size){
+                size = max;
+            }
+            return size;
+        }
+        if(runner.left){
+            let temp = max;
+            size = this.FindHeight(size, max+=1, runner.left);
+            max = temp;
+        }
+        if(runner.right){
+            size = this.FindHeight(size, max+=1, runner.right);
+        }
+        return size;
+    }
+}
+class Node{
+    constructor(val){
+        this.val = val;
+        this.left = null;
+        this.right = null;
+    }
+}
+const BST1 = new BST();
+console.log("BST1 ADDs", BST1.Add(10).Add(15).Add(7).Add(20).Add(3).Add(20));
+console.log("BST1 Contains", BST1.Contains(3));
+console.log("BST1 Find Min", BST1.FindMin());
+console.log("BST1 Find MAX", BST1.FindMax());
+console.log("Find Size", BST1.FindSize());
+</script>
+<body>
+    
+</body>
+</html>
