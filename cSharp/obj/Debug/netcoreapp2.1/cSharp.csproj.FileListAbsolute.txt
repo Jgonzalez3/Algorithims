@@ -1,0 +1,11 @@
+C:\Users\Javier Gonzalez\Documents\CodingDojo\Bootcamp\Algorithms\cSharp\bin\Debug\netcoreapp2.1\cSharp.deps.json
+C:\Users\Javier Gonzalez\Documents\CodingDojo\Bootcamp\Algorithms\cSharp\bin\Debug\netcoreapp2.1\cSharp.runtimeconfig.json
+C:\Users\Javier Gonzalez\Documents\CodingDojo\Bootcamp\Algorithms\cSharp\bin\Debug\netcoreapp2.1\cSharp.runtimeconfig.dev.json
+C:\Users\Javier Gonzalez\Documents\CodingDojo\Bootcamp\Algorithms\cSharp\bin\Debug\netcoreapp2.1\cSharp.dll
+C:\Users\Javier Gonzalez\Documents\CodingDojo\Bootcamp\Algorithms\cSharp\bin\Debug\netcoreapp2.1\cSharp.pdb
+C:\Users\Javier Gonzalez\Documents\CodingDojo\Bootcamp\Algorithms\cSharp\obj\Debug\netcoreapp2.1\cSharp.csprojAssemblyReference.cache
+C:\Users\Javier Gonzalez\Documents\CodingDojo\Bootcamp\Algorithms\cSharp\obj\Debug\netcoreapp2.1\cSharp.csproj.CoreCompileInputs.cache
+C:\Users\Javier Gonzalez\Documents\CodingDojo\Bootcamp\Algorithms\cSharp\obj\Debug\netcoreapp2.1\cSharp.AssemblyInfoInputs.cache
+C:\Users\Javier Gonzalez\Documents\CodingDojo\Bootcamp\Algorithms\cSharp\obj\Debug\netcoreapp2.1\cSharp.AssemblyInfo.cs
+C:\Users\Javier Gonzalez\Documents\CodingDojo\Bootcamp\Algorithms\cSharp\obj\Debug\netcoreapp2.1\cSharp.dll
+C:\Users\Javier Gonzalez\Documents\CodingDojo\Bootcamp\Algorithms\cSharp\obj\Debug\netcoreapp2.1\cSharp.pdb
