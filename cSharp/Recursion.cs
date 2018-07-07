@@ -15,5 +15,8 @@ namespace cSharp{
             }
             return rFact(num-1) * num;
         }
+        // public static object rBinarySearch(int[] arr, int val){
+
+        // }
     }
 }

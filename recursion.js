@@ -78,7 +78,7 @@ function rRisingSq(num, sub = 1){
 }
 console.log("Rising Squares", rRisingSq(8));
 
-// Binary Search Recursion find index location
+// Binary Search Recursion find index location given int val
 function rBinarySearch(arr, num, m=Math.round(arr.length/2), s = 0, e = arr.length-1){
     console.log("function Start", arr, num, m, s, e);
     if(arr[m] == num || arr[s] == num || arr[e] == num){
