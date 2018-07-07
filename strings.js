@@ -19,7 +19,7 @@ function StringToWords(str){
 console.log(StringToWords("  She  is a brick house!!"));
 
 
-//Censors given banned words arr from given string. String transferred to new String Algo checks for banned words in the process. Censors each character of banned word with "*"
+//Censors given banned words arr from given string. String transferred to new String Algo checks for banned words in the process. Censors each character of banned word with "*" The Regex: ^a-zA-Z looks for Anything not letters lowercase and uppercase.
 function BannedWords(str, bannedArr){
     let idx = 0, word = "", newStr = "", start =0, end =0, strRegex = /[^a-zA-Z]/;
     while(idx < str.length){

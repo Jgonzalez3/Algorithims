@@ -111,6 +111,7 @@ class BST{
         if(runner.left){
             count = this.FindSize(runner.left, count+=1)
         }
+        return count;
     }
     FindHeight(size=0, max=1, runner=this.root){
         if(!runner){
