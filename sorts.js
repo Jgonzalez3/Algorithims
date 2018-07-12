@@ -1,4 +1,4 @@
-// Sort unordered array by swapping out starting from idx = 0 N^2
+// Sort unordered array by swapping out starting from idx=0, N^2 or 1.67?
 function BubbleSort(arr){
     let start = 0, next = 1, end = 0, swapped = false;
     while(end < arr.length){
@@ -27,6 +27,7 @@ function BubbleSort(arr){
 }
 console.log(BubbleSort([1,20,5,3,16]))
 
+//
 function SelectionSort(arr){
     let minIdx = 0, start = 0, end = 0, next = 1, swapped = false;
     while(end<arr.length-1){
